@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.kernal.passportreader.sdk"
+    android:versionCode="1"
+    android:versionName="1.0.2.1"
+    >
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 获取机型信息权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <!-- 访问internet权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--腾讯QQ分享-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="23" />
+    <application
+        android:allowBackup="false" >
+        <meta-data android:name="android.max_aspect"
+            android:value="2.1" />
+        <activity
+            android:name="com.kernal.passportreader.sdk.MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="kernal.idcard.MainActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.kernal.passportreader.sdk.CameraActivity"
+            android:screenOrientation="landscape" >
+
+            <!-- android:screenOrientation="landscape" -->
+        </activity>
+        <activity
+            android:name="com.kernal.passportreader.sdk.ShowResultActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="kernal.idcard.ShowResultActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+        </activity>
+        <activity
+            android:name="com.kernal.passport.sdk.utils.PermissionActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <service
+            android:name="kernal.idcard.android.AuthService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="kernal.idcard.authService" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="kernal.idcard.android.RecogService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="kernal.idcard.recogService" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="kernal.idcard.android.TimeService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="kernal.idcard.TimeService" />
+            </intent-filter>
+        </service>
+
+        <receiver android:name="kernal.idcard.android.DataChangeReceiver" >
+        </receiver>
+        <activity
+            android:name="kernal.idcard.android.IDCardBean"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="landscape"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="kernal.idcard" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+        <!---when integration, please change “com.kernal.passportreader.myapplication”
+         into”applicationId” of a project. -->
+        <provider
+            android:authorities="com.kernal.passportreader.myapplication.fileprovider"
+            android:name="android.support.v4.content.FileProvider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths"/>
+        </provider>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:descendantFocusability="blocksDescendants" >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayouttotal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#000000" >
+
+        <SurfaceView
+            android:id="@+id/surfaceViwe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:visibility="visible" >
+        </SurfaceView>
+
+        <ImageButton
+            android:id="@+id/imbtn_flash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/flash_on" />
+
+        <RelativeLayout
+            android:id="@+id/bg_camera_doctype"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <TextView
+                android:id="@+id/tv_camera_doctype"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="#f39912" />
+
+
+        </RelativeLayout>
+
+        <ImageButton
+            android:id="@+id/imbtn_camera_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/camera_back_nomal" />
+
+        <ImageButton
+            android:id="@+id/imbtn_takepic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tack_pic_btn" />
+
+        <ImageButton
+            android:id="@+id/imbtn_eject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/locker_btn" />
+
+        <ImageView
+            android:id="@+id/imbtn_spot_dection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/spot_dection_off" />
+
+        <com.kernal.passport.sdk.view.ViewfinderView
+            android:id="@+id/viewfinder_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#00000000" />
+        <TextView
+            android:id="@+id/tv_reject_recog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#fd455b" />
+    </RelativeLayout>
+
+</FrameLayout>
